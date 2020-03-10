@@ -129,6 +129,7 @@ With that, we should be good!
 
 By using EKS, my network security needs were straightforward from the start.
 I opened the [bare minimum](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) ports for EKS to function, which keeps the surface area for attack pretty low.
+I opened EKS console access only to the IP of my workstation (in reality, the IP of whoever is running the terraform commands).
 
 The VPCs I created are minimal, with only a single Internet Gateway for access to the EKS cluster.
 Poking a hole for the web app is done using an ELB with minimal settings.
