@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: ping-server
+  name: ping-server
+spec:
+  # use only a single replica
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: ping-server
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: ping-server
+    spec:
+      containers:
+      # use the ping-server app from the registry
+      - image: 018150641412.dkr.ecr.us-east-1.amazonaws.com/test_registry:latest
+        name: ping-server
